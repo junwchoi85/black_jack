@@ -39,10 +39,22 @@ def calculate_score(cards):
     # If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses.
     # If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
 
-
 def compare(user_score, computer_score):
-    pass
 
+    if user_score == computer_score:
+        return "Draw"
+    elif computer_score == 0:
+        return "Lose, opponent has Blackjack"
+    elif user_score == 0:
+        return "Win with a Blackjack"
+    elif user_score > 21:
+        return "You went over. You lose"
+    elif computer_score > 21:
+        return "Opponent went over. You win"
+    elif user_score > computer_score:
+        return "You win"
+    else:
+        return "You lose"
 
 def play_game():
     user_cards = []
