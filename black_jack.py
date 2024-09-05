@@ -67,6 +67,9 @@ def compare(user_score, computer_score):
 
 
 def play_game():
+    # clear screen
+
+    print("\033c", end="")
     user_cards = []
     dealer_cards = []
 
