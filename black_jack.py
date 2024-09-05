@@ -39,6 +39,7 @@ def calculate_score(cards):
     # If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses.
     # If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
 
+
 def compare(user_score, computer_score):
 
     if user_score == computer_score:
@@ -55,6 +56,7 @@ def compare(user_score, computer_score):
         return "You win"
     else:
         return "You lose"
+
 
 def play_game():
     user_cards = []
@@ -73,6 +75,25 @@ def play_game():
     if user_score == 0 or dealer_score == 0 or user_score > 21:
         print("Game Over")
         return
+
+    while input("Type 'y' to get another card, type 'n' to pass: ") == "y":
+        user_cards.append(deal_card())
+        user_score = sum(user_cards)
+        print(f"Your cards: {user_cards}, current score: {user_score}")
+
+        if user_score > 21:
+            print("You went over. You lose")
+            return
+
+    while dealer_score < 17:
+        dealer_cards.append(deal_card())
+        dealer_score = sum(dealer_cards)
+
+    print(f"Your final hand: {user_cards}, final score: {user_score}")
+    print(f"Computer's final hand: {
+          dealer_cards}, final score: {dealer_score}")
+    print(compare(user_score, dealer_score))
+
     # Hint 5: Deal the user and computer 2 cards each using deal_card()
     # Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
     # Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List.
