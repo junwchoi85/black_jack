@@ -30,6 +30,9 @@ def deal_card():
 def calculate_score(cards):
     """Take a list of cards and return the score calculated from the cards"""
 
+    # calculate the score of the cards
+    return sum(cards)
+
     # Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
     # Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
     # Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw.
@@ -58,7 +61,6 @@ def play_game():
     if user_score == 0 or dealer_score == 0 or user_score > 21:
         print("Game Over")
         return
-
     # Hint 5: Deal the user and computer 2 cards each using deal_card()
     # Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
     # Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List.
