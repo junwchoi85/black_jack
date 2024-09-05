@@ -12,14 +12,16 @@
 
 import random
 
+deck = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10] * 4
+
 
 def deal_card():
     """Returns a random card from the deck."""
     # RANDOM CARD
-    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-    card = random.choice(cards)
+    # cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    card = random.choice(deck)
     # discard the card from the deck
-    cards.remove(card)
+    deck.remove(card)
     return card
 
 # Hint 6: Create a function called calculate_score() that takes a List of cards as input
@@ -100,6 +102,7 @@ def play_game():
     # If no, then the game has ended.
     # Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
     # Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
+
 
     # Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.
 while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
