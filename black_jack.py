@@ -5,17 +5,22 @@
 # The Jack/Queen/King all count as 10.
 # The the Ace can count as 11 or 1.
 # Use the following list as the deck of cards:
-## cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+# cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 # The cards in the list have equal probability of being drawn.
 # Cards are not removed from the deck as they are drawn.
 
 
 import random
-from art import logo
 
 
 def deal_card():
     """Returns a random card from the deck."""
+    # RANDOM CARD
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    card = random.choice(cards)
+    # discard the card from the deck
+    cards.remove(card)
+    return card
 
 # Hint 6: Create a function called calculate_score() that takes a List of cards as input
 # and returns the score.
@@ -33,10 +38,26 @@ def calculate_score(cards):
 
 
 def compare(user_score, computer_score):
-
+    pass
 
 
 def play_game():
+    user_cards = []
+    dealer_cards = []
+
+    for _ in range(2):
+        user_cards.append(deal_card())
+        dealer_cards.append(deal_card())
+
+    print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
+    print(f"Computer's first card: {dealer_cards[0]}")
+
+    user_score = sum(user_cards)
+    dealer_score = sum(dealer_cards)
+
+    if user_score == 0 or dealer_score == 0 or user_score > 21:
+        print("Game Over")
+        return
 
     # Hint 5: Deal the user and computer 2 cards each using deal_card()
     # Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
@@ -45,7 +66,6 @@ def play_game():
     # Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
     # Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
 
-
-# Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.
+    # Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.
 while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == "y":
     play_game()
